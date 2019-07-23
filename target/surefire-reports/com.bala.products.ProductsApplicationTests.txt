@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bala.products.ProductsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.892 s - in com.bala.products.ProductsApplicationTests
