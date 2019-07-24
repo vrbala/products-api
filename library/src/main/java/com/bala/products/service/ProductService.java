@@ -4,13 +4,11 @@ import com.bala.products.dto.MetaData;
 import com.bala.products.dto.PricingInformation;
 import com.bala.products.dto.Product;
 import com.bala.products.dto.ProductDescription;
-import com.bala.products.exceptions.ResourceNotFound;
 import com.bala.products.model.ProductModel;
 import com.bala.products.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
