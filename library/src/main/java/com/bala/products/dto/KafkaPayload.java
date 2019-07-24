@@ -14,6 +14,15 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class KafkaPayload {
 
-    public String key;
+    @Expose
+    @SerializedName("product")
     public Product product;
+
+    /*
+    * Kafka Consumer currently supports "CREATE" and "UPDATE"
+    *
+    * */
+    @Expose
+    @SerializedName("action")
+    public String action;
 }

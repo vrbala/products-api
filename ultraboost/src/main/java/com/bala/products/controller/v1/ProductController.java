@@ -2,6 +2,7 @@ package com.bala.products.controller.v1;
 
 
 import com.bala.products.dto.Product;
+import com.bala.products.service.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
     @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
     @ResponseBody
@@ -50,9 +54,11 @@ public class ProductController {
         Product existingProduct = productService.findByProductId(product.getId());
         if(null == existingProduct) {
             productService.createProduct(product);
+            kafkaProducer.sendMessage(product);
             return new ResponseEntity<>("Success", HttpStatus.CREATED);
         } else {
             productService.updateProduct(product);
+            kafkaProducer.sendMessage(product);
             return new ResponseEntity<>("Success", HttpStatus.OK);
         }
     }
