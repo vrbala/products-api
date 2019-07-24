@@ -1,3 +1,7 @@
 .*
 *.iml
 *.class
+library/target/**
+ultraboost/target/**
+powerboost/target/**
+target/**
