@@ -42,33 +42,32 @@ public class ProductService {
 
     // TODO: could go to a utils class
     private static Product toProductDto(ProductModel pm) {
-        Product p = new Product();
 
-        MetaData md = new MetaData();
-        md.setCanonical(pm.getCanonical());
-        md.setDescription(pm.getDescription());
-        md.setKeywords(pm.getKeywords());
-        md.setSiteName(pm.getSiteName());
-        md.setPageTitle(pm.getPageTitle());
+        MetaData md = new MetaData()
+                .setCanonical(pm.getCanonical())
+                .setDescription(pm.getDescription())
+                .setKeywords(pm.getKeywords())
+                .setSiteName(pm.getSiteName())
+                .setPageTitle(pm.getPageTitle());
 
-        PricingInformation pi = new PricingInformation();
-        pi.setCurrentPrice(pm.getCurrentPrice());
-        pi.setStandardPrice(pm.getStandardPrice());
-        pi.setStandardPriceNoVat(pm.getStandardPriceNoVat());
+        PricingInformation pi = new PricingInformation()
+                .setCurrentPrice(pm.getCurrentPrice())
+                .setStandardPrice(pm.getStandardPrice())
+                .setStandardPriceNoVat(pm.getStandardPriceNoVat());
 
-        ProductDescription pd = new ProductDescription();
-        pd.setSubtitle(pm.getSubtitle());
-        pd.setText(pm.getText());
-        pd.setTitle(pm.getTitle());
+        ProductDescription pd = new ProductDescription()
+                .setSubtitle(pm.getSubtitle())
+                .setText(pm.getText())
+                .setTitle(pm.getTitle());
 
-        p.setId(pm.getProductId());
-        p.setModelNumber(pm.getModelNumber());
-        p.setName(pm.getName());
-        p.setProductType(pm.getProductType());
-        p.setPricingInformation(pi);
-        p.setProductDescription(pd);
-        p.setMetaData(md);
 
-        return p;
+        return new Product()
+                .setId(pm.getProductId())
+                .setName(pm.getName())
+                .setProductType(pm.getProductType())
+                .setModelNumber(pm.getModelNumber())
+                .setProductDescription(pd)
+                .setPricingInformation(pi)
+                .setMetaData(md);
     }
 }

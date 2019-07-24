@@ -29,13 +29,13 @@ public class ProductController {
         return productService.firstPage();
     }
 
-    @RequestMapping("/product")
+    @RequestMapping("/product/{id}")
     @ResponseBody
-    public String product(@PathVariable String productId) {
+    public Product product(@PathVariable(value = "id") String productId) {
 
         Product product = productService.findByProductId(productId);
         if (product != null) {
-            return gson.toJson(product);
+            return product;
         }
 
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "resource not found");
