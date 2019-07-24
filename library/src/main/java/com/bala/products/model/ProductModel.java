@@ -19,6 +19,7 @@ public class ProductModel {
 
     @Id
     @Column(name = "_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "product_id")
