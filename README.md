@@ -1,31 +1,15 @@
-Products API
-=================
+# Products API
+
+[![Build Status](https://travis-ci.com/vrbala/products-api.svg?branch=master)](https://travis-ci.com/vrbala/products-api)
 
 
-* API
-
-** Methods
-HEAD
-PUT
-OPTIONS
-POST
-DELETE
-GET
-
-** Authentication
-
-** Performance requirements
-
-*** Write
-- Highly available and consistent
-
-*** Read
-- Low latency
-- product listing endpoint supporting pagination and filtering based on article ids
-
-** Extras
-- CI/CD
-- Test Automation
+# Components
+## products library
+Core library providing the domain model, DB and messaging support
+## ultraboost
+Component providing the REST API
+## powerboost
+Ingester to populate the read model with messages from queue.
 
 
 
