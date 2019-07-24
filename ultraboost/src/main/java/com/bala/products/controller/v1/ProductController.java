@@ -2,8 +2,6 @@ package com.bala.products.controller.v1;
 
 
 import com.bala.products.dto.Product;
-import com.bala.products.exceptions.ResourceNotFound;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +11,7 @@ import com.bala.products.dto.Product;
 import com.bala.products.service.ProductService;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -47,7 +46,7 @@ public class ProductController {
 
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<String> create(@RequestBody() Product product) {
+    public ResponseEntity<String> create(@RequestBody @Valid Product product) {
         Product existingProduct = productService.findByProductId(product.getId());
         if(null == existingProduct) {
             productService.createProduct(product);
