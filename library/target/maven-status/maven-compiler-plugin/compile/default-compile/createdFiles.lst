@@ -1,9 +1,0 @@
-com/bala/products/dto/Product.class
-com/bala/products/dto/KafkaPayload.class
-com/bala/products/dto/MetaData.class
-com/bala/products/dto/ProductDescription.class
-com/bala/products/exceptions/ResourceNotFound.class
-com/bala/products/service/ProductService.class
-com/bala/products/model/ProductModel.class
-com/bala/products/dto/PricingInformation.class
-com/bala/products/repository/ProductRepository.class

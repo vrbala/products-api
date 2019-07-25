@@ -1,9 +1,0 @@
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/dto/MetaData.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/model/ProductModel.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/repository/ProductRepository.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/service/ProductService.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/dto/KafkaPayload.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/dto/Product.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/dto/ProductDescription.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/exceptions/ResourceNotFound.java
-/Users/bala/projects/products-api/library/src/main/java/com/bala/products/dto/PricingInformation.java
