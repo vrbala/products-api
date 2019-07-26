@@ -47,3 +47,34 @@ Endpoints:
 	
 /api/v1/product/?count=<>&skip=<>
 	- GET
+
+
+Docker commands:
+===================
+
+docker build .
+docker run  -it -p 9000:9000 60cd7e1e917f
+
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 spotify/kafka
+
+docker-compose up --force-create
+docker-compose down
+docker volume ls
+docker volume rm ...
+
+docker exec -it f65627971f2a bash
+
+port mapping provided in docker compose config is only to external world. Internally, the docker compose sets up the network with the configured ports.
+
+docker images
+docker image ...
+
+
+
+
+On Mac:
+==============
+
+spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/products
+spring.kafka.consumer.bootstrap-servers=host.docker.internal:9092
+spring.kafka.producer.bootstrap-servers=host.docker.internal:9092

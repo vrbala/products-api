@@ -1,3 +1,9 @@
+#!/bin/bash
+
+set -e
+
+psql -v ON_ERROR_STOP=1 --username products --dbname products <<-EOSQL
+
 drop table if exists product;
 create table product (
        _id serial primary key,
@@ -20,7 +26,6 @@ create table product (
        updated_dttm timestamp with time zone default now()
 );
 
--- sample data
 insert into product
 (product_id, name, model_number, product_type, page_title, site_name, description, keywords, canonical, standard_price, standard_price_no_vat, current_price, title, subtitle, text)
 values
@@ -54,3 +59,5 @@ insert into product
 (product_id, name, model_number, product_type, page_title, site_name, description, keywords, canonical, standard_price, standard_price_no_vat, current_price, title, subtitle, text)
 values
 ('AF7766', 'Nite Jogger', 'Nite001', 'inline', 'Nite Jogger', 'Adidas DE', 'Awesome nite jogger', 'Nite,jogger,shoe', '//adidas.de/nite', 119.98, 87.09, 119.98, 'Nite Jogger', 'Ntj', 'This is awesome');
+
+EOSQL
