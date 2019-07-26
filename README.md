@@ -33,7 +33,7 @@ Ingester to providing persistence service, processing incoming messages and upda
 ## Deployment
 The service is self-contained and can run in dockerize-env. It brings up 
 1. postgres from a standard image with some sample data (in addition to those provided by `_sample` endpoint above
-2. single node kafka (built for this application and available in public domain now) 
+2. single node kafka from image built for this application and available in [(public domain)](https://cloud.docker.com/u/balavr/repository/docker/balavr/kafka) now 
 3. single node ultraboost and single instance powerboost (these have to be built and available in local. Instructions below on how to build them.)
 
 ### To build and run
