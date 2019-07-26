@@ -10,14 +10,10 @@ services:
       - "5435:5432"
 
   kafka:
-    image: spotify/kafka
+    image: balavr/kafka:jdk8-alpine
     ports:
       - "9092:9092"
       - "2181:2181"
-    environment:
-      - "ADVERTISED_HOST=localhost"
-      - "ADVERTISED_PORT=9092"
-      - "AUTO_CREATE_TOPICS=true"
 
   ultraboost:
     build:
