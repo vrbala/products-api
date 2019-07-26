@@ -2,3 +2,4 @@ server:
   port: 9000
 ultraboost:
   create_product_async: true
+  persistence_delay: 500 # ms

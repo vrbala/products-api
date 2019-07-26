@@ -80,6 +80,16 @@ public class ProductService {
         }
     }
 
+    public boolean deleteByProductId(String productId) {
+        Optional<ProductModel> pm = repository.findByProductId(productId);
+        if(pm.isPresent()) {
+            repository.delete(pm.get());
+            return true;
+        }
+
+        return false;
+    }
+
     // TODO: could go to a utils class
     private static Product toProductDto(ProductModel pm) {
 
