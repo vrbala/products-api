@@ -16,18 +16,18 @@ public class MetaData {
 
     @SerializedName("page_title")
     @Expose
-    public String pageTitle;
+    private String pageTitle;
     @SerializedName("site_name")
     @Expose
-    public String siteName;
+    private String siteName;
     @SerializedName("description")
     @Expose
-    public String description;
+    private String description;
     @SerializedName("keywords")
     @Expose
-    public String keywords;
+    private String keywords;
     @SerializedName("canonical")
     @Expose
-    public String canonical;
+    private String canonical;
 
 }

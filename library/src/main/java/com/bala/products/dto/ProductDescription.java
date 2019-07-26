@@ -16,12 +16,12 @@ public class ProductDescription {
 
     @SerializedName("title")
     @Expose
-    public String title;
+    private String title;
     @SerializedName("subtitle")
     @Expose
-    public String subtitle;
+    private String subtitle;
     @SerializedName("text")
     @Expose
-    public String text;
+    private String text;
 
 }

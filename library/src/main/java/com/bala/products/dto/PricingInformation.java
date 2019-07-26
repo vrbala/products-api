@@ -16,12 +16,12 @@ public class PricingInformation {
 
     @SerializedName("standard_price")
     @Expose
-    public Double standardPrice;
+    private Double standardPrice;
     @SerializedName("standard_price_no_vat")
     @Expose
-    public Double standardPriceNoVat;
+    private Double standardPriceNoVat;
     @SerializedName("currentPrice")
     @Expose
-    public Double currentPrice;
+    private Double currentPrice;
 
 }

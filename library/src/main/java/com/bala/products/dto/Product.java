@@ -19,30 +19,30 @@ public class Product {
     @NotNull
     @SerializedName("id")
     @Expose
-    public String id;
+    private String id;
     @NotNull
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
     @NotNull
     @SerializedName("model_number")
     @Expose
-    public String modelNumber;
+    private String modelNumber;
     @NotNull
     @SerializedName("product_type")
     @Expose
-    public String productType;
+    private String productType;
     @NotNull
     @SerializedName("meta_data")
     @Expose
-    public MetaData metaData;
+    private MetaData metaData;
     @NotNull
     @SerializedName("pricing_information")
     @Expose
-    public PricingInformation pricingInformation;
+    private PricingInformation pricingInformation;
     @NotNull
     @SerializedName("product_description")
     @Expose
-    public ProductDescription productDescription;
+    private ProductDescription productDescription;
 
 }
