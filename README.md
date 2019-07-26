@@ -39,7 +39,7 @@ The service is self-contained and can run in dockerize-env. It brings up
 ### To build and run
 From top level directory,
 ```bash
-$ mvn install 
+$ mvn -Dmaven.test.skip=true install 
 $ docker-compose up -d
 ```
 
