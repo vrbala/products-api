@@ -2,7 +2,29 @@
 
 A simple product management API.
 
-[![Build Status](https://travis-ci.com/vrbala/products-api.svg?branch=master)](https://travis-ci.com/vrbala/products-api)
+## System requirements
+- JDK1.8+
+- Kafka
+- PostgreSQL
+
+## Deployment
+The service is self-contained and can run in dockerize-env. It brings up 
+1. postgres from a standard image with some sample data (in addition to those provided by `_sample` endpoint above
+2. single node kafka from image built for this application and available in [(public domain)](https://cloud.docker.com/u/balavr/repository/docker/balavr/kafka) now 
+3. single node ultraboost and single instance powerboost (these have to be built and available in local. Instructions below on how to build them.)
+
+### To build and run
+From top level directory,
+```bash
+$ mvn -Dmaven.test.skip=true install 
+$ docker-compose build 
+$ docker-compose up -d
+```
+
+If you want to develop using local instances of postgresql and kafka without using docker, update right hostnames 
+and ports in
+[powerboost configuration](https://github.com/vrbala/products-api/blob/master/powerboost/application.properties)
+and [ultraboost configuration](https://github.com/vrbala/products-api/blob/master/ultraboost/application.properties).
 
 
 # Components
@@ -87,24 +109,6 @@ $ curl -X POST \
 
 ## powerboost
 Ingester to providing persistence service, processing incoming messages and updating storage. For scalability, desired read models can be built into read optimized data storaged in this component itself.
-
-## Deployment
-The service is self-contained and can run in dockerize-env. It brings up 
-1. postgres from a standard image with some sample data (in addition to those provided by `_sample` endpoint above
-2. single node kafka from image built for this application and available in [(public domain)](https://cloud.docker.com/u/balavr/repository/docker/balavr/kafka) now 
-3. single node ultraboost and single instance powerboost (these have to be built and available in local. Instructions below on how to build them.)
-
-### To build and run
-From top level directory,
-```bash
-$ mvn -Dmaven.test.skip=true install 
-$ docker-compose up -d
-```
-
-If you want to develop using local instances of postgresql and kafka without using docker, update right hostnames 
-and ports in
-[powerboost configuration](https://github.com/vrbala/products-api/blob/master/powerboost/application.properties)
-and [ultraboost configuration](https://github.com/vrbala/products-api/blob/master/ultraboost/application.properties).
 
 
 ## Product json schema 
