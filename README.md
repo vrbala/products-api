@@ -88,7 +88,7 @@ $ curl -X POST \
   '
 ```
 
-### Admin endpoints (Can be consumed by a cloud orchestrator)
+### Admin endpoints (To be consumed for monitoring and orchestration purposes)
 - `/api/v1/_ping` - Responds with `200 OK` when the service is ready to respond. 
 ```bash
 $ curl -X GET \
