@@ -17,7 +17,7 @@ public class KafkaConsumerImpl implements KafkaConsumer {
     private static final String TOPIC = "products";
 
     @Autowired
-    private PersistenceService persistenceService;
+    private EventPersistenceService eventPersistenceService;
 
     private Gson gson = new Gson();
 
@@ -26,11 +26,11 @@ public class KafkaConsumerImpl implements KafkaConsumer {
         logger.info(String.format("#### -> Consumed message -> %s", message));
         Product product = gson.fromJson(message, Product.class);
 
-        Product existingProduct = persistenceService.findByProductId(product.getId());
+        Product existingProduct = eventPersistenceService.findByProductId(product.getId());
         if(existingProduct == null) {
-            persistenceService.createProduct(product);
+            eventPersistenceService.createProduct(product);
         } else {
-            persistenceService.updateProduct(product);
+            eventPersistenceService.updateProduct(product);
         }
         logger.info("#### -> Successfully processed message.");
     }

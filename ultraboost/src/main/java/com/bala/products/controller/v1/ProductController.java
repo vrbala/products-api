@@ -3,11 +3,10 @@ package com.bala.products.controller.v1;
 
 import com.bala.products.config.ApplicationConfig;
 import com.bala.products.service.KafkaProducer;
-import com.bala.products.service.PersistenceService;
+import com.bala.products.service.EventPersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +34,7 @@ public class ProductController {
     private ApplicationConfig config;
 
     @Autowired
-    private PersistenceService persistenceService;
+    private EventPersistenceService eventPersistenceService;
 
     @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
     @ResponseBody
@@ -73,7 +72,7 @@ public class ProductController {
         } else {
             Product existingProduct = productService.findByProductId(product.getId());
             if (null == existingProduct) {
-                persistenceService.createProduct(product);
+                eventPersistenceService.createProduct(product);
                 return new ResponseEntity<>("Success", HttpStatus.CREATED);
             } else {
                 return new ResponseEntity<>("Resource exists already", HttpStatus.CONFLICT);
@@ -94,10 +93,10 @@ public class ProductController {
         } else {
             Product existingProduct = productService.findByProductId(product.getId());
             if (null == existingProduct) {
-                persistenceService.createProduct(product);
+                eventPersistenceService.createProduct(product);
                 return new ResponseEntity<>("Success", HttpStatus.CREATED);
             } else {
-                persistenceService.updateProduct(product);
+                eventPersistenceService.updateProduct(product);
                 return new ResponseEntity<>("Success", HttpStatus.OK);
             }
         }
