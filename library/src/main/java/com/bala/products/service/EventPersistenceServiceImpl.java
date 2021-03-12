@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-public class PersistenceServiceImpl {
+public class EventPersistenceServiceImpl {
 
     @Autowired
     private ProductRepository repository;

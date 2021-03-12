@@ -6,11 +6,10 @@ import com.bala.products.dto.PricingInformation;
 import com.bala.products.dto.Product;
 import com.bala.products.dto.ProductDescription;
 import com.bala.products.service.KafkaProducer;
-import com.bala.products.service.PersistenceService;
+import com.bala.products.service.EventPersistenceService;
 import com.bala.products.service.ProductService;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +35,7 @@ public class AdminController {
     private KafkaProducer kafkaProducer;
 
     @Autowired
-    private PersistenceService persistenceService;
+    private EventPersistenceService eventPersistenceService;
 
     @Autowired
     private ApplicationConfig config;
@@ -78,14 +77,13 @@ public class AdminController {
             return new ResponseEntity<>("persistence error or bad performance", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        if(!persistenceService.deleteByProductId(productId)) {
+        if(!eventPersistenceService.deleteByProductId(productId)) {
             return new ResponseEntity<>("persistence error - delete product issues", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return new ResponseEntity<>("healthy", HttpStatus.OK);
     }
 
-    // TODO: should be admin only endpoint.
     @RequestMapping(value = "/_sample", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> setupSampleProducts() {
